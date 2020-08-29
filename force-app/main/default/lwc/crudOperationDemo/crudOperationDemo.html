@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-grid slds-gutters">
+    <button onclick={navigateToLightningComponent}>Open New component</button>
+        <div class="slds-col">
+            <lightning-card title="Create Record" icon-name="standard:record">
+                <div class="slds-m-around_medium">
+                    <lightning-input label="Id" disabled value={accountId}></lightning-input>
+                    <lightning-input label="Name" onchange={handleNameChange} class="slds-m-bottom_x-small"></lightning-input>
+                    <lightning-button label="Create Account" variant="brand" onclick={createAccount}></lightning-button>
+                </div>
+            </lightning-card>
+        </div>
+        <div class="slds-col">
+        <lightning-card title="Read and update record" icon-name="standard:record">
+            <div class="slds-m-around_medium">
+                <lightning-input label="Id" name="" onkeyup={changeHandler}></lightning-input>
+                <lightning-input label="Name" name="" onchange={changeHandler} class="slds-m-bottom_x-small"></lightning-input>
+                <lightning-button label="Read Account detail" variant="brand" onclick={readAccount}></lightning-button>
+                <lightning-button label="Update Account detail" variant="brand" onclick={updateAccount}></lightning-button>
+            </div>
+        </lightning-card>
+        </div>
+        <div class="slds-col">
+            <span>3</span>
+        </div>
+    </div>
+</template>

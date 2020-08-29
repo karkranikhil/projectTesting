@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-m-top_medium">
+        <lightning-card title="fetch record details by  Id" icon-name="standard:user">
+            <table>
+                <thead>
+                    <tr>
+                        <template for:each={tableHeader} for:item="header" for:index="index">
+                            <th key={header}>{header}</th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={tableBody} for:item="body" for:index="index">
+                        <tr key={body.apiName}>
+                            <td>{body.apiName}</td>
+                            <td>{body.dataType}</td>
+                            <td>{body.label}</td>
+                            <td>{body.length}</td>
+                            <td>{body.required}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </lightning-card>
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<template>
+    <div class="margin-bottom-2rem">
+        <lightning-card  title="Single Data binding" icon-name="custom:custom14">
+            <div class="slds-m-around_medium">
+                <p>{fullname}</p>
+            </div>
+        </lightning-card>
+    </div>
+    
+    <lightning-card title="Two way Data binding" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <p>Hello wor, {greeting}!</p>
+            <lightning-input label="Name" value={greeting} onchange={changeHandler}></lightning-input>
+        </div>
+    </lightning-card>
+
+    <!-- <lightning-card title="Two way Data binding" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <c:Lookup-updated value-id="0010o00002FsqGPAAZ" obj-name="Account" icon-name="standard:account" label-name="Account"
+                read-only="false" ></c:Lookup-updated>
+        </div>
+    </lightning-card> -->
+    
+
+    
+</template>

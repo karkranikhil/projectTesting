@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Update Account Record" icon-name="standard:account">
+
+        <div class="slds-m-around--xx-large">
+            <div class="container-fluid">
+                <div class="form-group">
+                    <lightning-input label="Enter Account Name" name="Name" required type="text" value={formFields.Name}
+                        onchange={changeHandler}></lightning-input>
+                </div>
+                <div class="form-group">
+                    <lightning-input label="Enter Phone Number" name="Phone" type="text" value={formFields.Phone}
+                        onchange={changeHandler}></lightning-input>
+                </div>
+                <div class="form-group">
+                    <lightning-input label="Enter Account Type" name="Type" type="text" value={formFields.Type}
+                        onchange={changeHandler}></lightning-input>
+                </div>
+                <div class="form-group">
+                    <lightning-input label="Enter Industry" name="Industry" type="text" value={formFields.Industry}
+                        onchange={changeHandler}></lightning-input>
+                </div>
+            </div>
+            <br />
+            <lightning-button label="Submit" onclick={handleSave} variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

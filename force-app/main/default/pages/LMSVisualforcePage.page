@@ -1,0 +1,52 @@
+<apex:page lightningStyleSheets="true">
+    <apex:slds />
+    <div class="slds-scope">
+        <div class="slds-p-around_small">
+            <p>Enter Publish message</p>
+            <input type="text" class="slds-input slds-p-bottom_small" id="theMessage" />
+            <div class="slds-p-bottom_small slds-p-top_small">
+                <button class="slds-button slds-button_neutral" onclick="publishMessage()">Publish Your Message</button>
+                <button class="slds-button slds-button_neutral" onclick="subscribeMC()">Subscribe</button>
+                <button class="slds-button slds-button_neutral" onclick="unsubscribeMC()">Unsubscribe</button>
+            </div>
+            <p>Mesage ReceivedMessage:</p>
+            <div id="ReceivedMessage"></div>
+        </div>
+
+    </div>
+    <script> 
+        // Load the MessageChannel token in a variable
+        let SAMPLEMC = "{!$MessageChannel.SampleMessageChannel__c}";
+        let subscriptionToMC;
+
+        function publishMessage() {
+            console.log("publishMessage called")
+            let data = document.getElementById('theMessage').value
+            const payload = {
+                lmsData: {
+                    value: data
+                }
+            };
+            sforce.one.publish(SAMPLEMC, payload);
+        }
+
+        function subscribeMC() {
+            if (!subscriptionToMC) {
+                subscriptionToMC = sforce.one.subscribe(SAMPLEMC, onMCPublished, { scope: "APPLICATION" });
+            }
+        }
+
+        function unsubscribeMC() {
+            if (subscriptionToMC) {
+                sforce.one.unsubscribe(subscriptionToMC);
+                subscriptionToMC = null;
+            }
+        }
+
+        function onMCPublished(message) {
+            console.log(message)
+            let textArea = document.querySelector("#ReceivedMessage");
+            textArea.innerHTML = message ? message.lmsData.value : '';
+        } 
+    </script>
+</apex:page>

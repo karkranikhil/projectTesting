@@ -1,0 +1,352 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+<aura:attribute name="state" type="List"/>
+<aura:handler name="init" value="{!this}" action="{!c.oninit}"/>
+<aura:attribute name="showImage" type="String" default="show-x"/>
+<aura:attribute name="tile1" type="String" default="tile1"/>
+<aura:attribute name="tile2" type="String" default="tile2"/>
+<aura:attribute name="tile3" type="String" default="tile3"/>
+<aura:attribute name="tile4" type="String" default="tile4"/>
+<aura:attribute name="tile5" type="String" default="tile5"/>
+<aura:attribute name="tile6" type="String" default="tile6"/>
+<aura:attribute name="tile7" type="String" default="tile7"/>
+<aura:attribute name="tile8" type="String" default="tile8"/>
+<aura:attribute name="tile9" type="String" default="tile9"/>
+<aura:attribute name="player1" type="String"/>
+<aura:attribute name="player2" type="String"/>
+<aura:attribute name="gameCompleted" type="boolean" default="false"/>
+<aura:attribute name="gameResultModal" type="boolean" default="false"/>
+<aura:attribute name="gameResultMessage" type="boolean" default="true"/>
+<aura:attribute name="playerSelectionModal" type="boolean" default="true"/>
+<lightning:card>
+   <div class="slds-align_absolute-center">
+      <div class="slds-box" style="max-width:640px;">
+         <fieldset class="slds-form-element">
+            <div class="slds-form-element__control">
+               <div class="slds-grid slds-gutters">
+	                    <aura:iteration items="{!v.state}" var="item" indexVar="index">
+                            <aura:if isTrue="{!index%3==0}">
+                                <br></br>
+                            </aura:if>
+                        <div class="slds-col slds-size_1-of-3">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input type="radio" id="{!item.id}"  name="options" value="{!item.value}" 
+                               onclick="{! c.handleOnClick }" />
+                        <label>
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <lightning:card class="slds-hide">
+                                       <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                    </lightning:card>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span>
+                        </label>
+                     </div>
+                  </div>
+                        
+                    </aura:iteration>
+                   
+                   
+                   
+                   </div>
+                   
+                   
+                <div class="slds-grid slds-gutters">   
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile1" type="radio" id="visual-picker-85" name="options" value="tile1" 
+                               onclick="{! c.handleOnClick }" />
+                        <label for="visual-picker-85">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <lightning:card class="slds-hide" aura:id="tile1o">
+                                       <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                    </lightning:card>
+                                    <lightning:card class="slds-hide" aura:id="tile1x">
+                                       <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                    </lightning:card>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile2" type="radio" id="visual-picker-86" value="tile2" name="options" onclick="{! c.handleOnClick }"  />
+                        <label for="visual-picker-86">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <span class="slds-icon_container">
+                                       <lightning:card class="slds-hide" aura:id="tile2o">
+                                          <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                       <lightning:card class="slds-hide" aura:id="tile2x">
+                                          <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                    </span>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span> 
+                        </label>
+                     </div>
+                  </div>
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile3" type="radio" id="visual-picker-87" value="tile3" name="options" onclick="{! c.handleOnClick }"  />
+                        <label for="visual-picker-87">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <span class="slds-icon_container">
+                                       <lightning:card class="slds-hide" aura:id="tile3o">
+                                          <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                       <lightning:card class="slds-hide" aura:id="tile3x">
+                                          <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                    </span>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span> 
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="slds-grid slds-gutters">
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile4" type="radio" id="visual-picker-88" name="options" value="tile4" onclick="{! c.handleOnClick }" />
+                        <label for="visual-picker-88">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <lightning:card class="slds-hide" aura:id="tile4o">
+                                       <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                    </lightning:card>
+                                    <lightning:card class="slds-hide" aura:id="tile4x">
+                                       <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                    </lightning:card>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile5" type="radio" id="visual-picker-89" value="tile5" name="options" onclick="{! c.handleOnClick }"  />
+                        <label for="visual-picker-89">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <span class="slds-icon_container">
+                                       <lightning:card class="slds-hide" aura:id="tile5o">
+                                          <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                       <lightning:card class="slds-hide" aura:id="tile5x">
+                                          <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                    </span>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span> 
+                        </label>
+                     </div>
+                  </div>
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile6" type="radio" id="visual-picker-90" value="tile6" name="options" onclick="{! c.handleOnClick }"  />
+                        <label for="visual-picker-90">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <span class="slds-icon_container">
+                                       <lightning:card class="slds-hide" aura:id="tile6o">
+                                          <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                       <lightning:card class="slds-hide" aura:id="tile6x">
+                                          <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                    </span>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span> 
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="slds-grid slds-gutters">
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile7" type="radio" id="visual-picker-91" name="options" value="tile7" onclick="{! c.handleOnClick }" />
+                        <label for="visual-picker-91">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <lightning:card class="slds-hide" aura:id="tile7o">
+                                       <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                    </lightning:card>
+                                    <lightning:card class="slds-hide" aura:id="tile7x">
+                                       <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                    </lightning:card>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile8" type="radio" id="visual-picker-92" value="tile8" name="options" onclick="{! c.handleOnClick }"  />
+                        <label for="visual-picker-92">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <span class="slds-icon_container">
+                                       <lightning:card class="slds-hide" aura:id="tile8o">
+                                          <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                       <lightning:card class="slds-hide" aura:id="tile8x">
+                                          <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                    </span>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span> 
+                        </label>
+                     </div>
+                  </div>
+                  <div class="slds-col">
+                     <div class="slds-visual-picker slds-visual-picker_medium">
+                        <input aura:id="tile9" type="radio" id="visual-picker-93" value="tile9" name="options" onclick="{! c.handleOnClick }"  />
+                        <label for="visual-picker-93">
+                           <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                              <span>
+                                 <span class="slds-icon_container">
+                                    <span class="slds-icon_container">
+                                       <lightning:card class="slds-hide" aura:id="tile9o">
+                                          <img  src="{!$Resource.Image_O}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                       <lightning:card class="slds-hide" aura:id="tile9x">
+                                          <img  src="{!$Resource.Image_X}" style="width:140px; height:140px;"/>     
+                                       </lightning:card>
+                                    </span>
+                                 </span>
+                              </span>
+                           </span>
+                           <span class="slds-visual-picker__body">
+                           <span class="slds-text-heading_small"></span>
+                           </span> 
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </fieldset>
+      </div>
+   </div>
+</lightning:card>
+<aura:if isTrue="{!v.playerSelectionModal}">
+   <!-- Modal/Popup Box starts here-->
+   <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container">
+         <!-- Modal/Popup Box Header Starts here-->
+         <header class="slds-modal__header">
+            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Play Tic-Tac-Toe</h2>
+         </header>
+         <!--Modal/Popup Box Body Starts here-->
+         <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <p>
+               <b>
+                  <lightning:layout>
+                     <lightning:layoutitem padding="around-small" size="6">
+                        Player 1 : 
+                        <lightning:select name="player1" value="{!v.player1}" label="" onchange="{!c.onPlayer1Change}" >
+                           <option value="X">X</option>
+                           <option value="O">O</option>
+                        </lightning:select>
+                     </lightning:layoutitem>
+                     <lightning:layoutitem padding="around-small" size="6">
+                        Player 2 : 
+                        <lightning:select name="player2" value="{!v.player2}" label="" onchange="{!c.onPlayer2Change}">
+                           <option value="O">O</option>
+                           <option value="X">X</option>
+                        </lightning:select>
+                     </lightning:layoutitem>
+                  </lightning:layout>
+               </b>
+            </p>
+         </div>
+         <!--Modal/Popup Box Footer Starts here-->
+         <footer class="slds-modal__footer">
+            <lightning:button variant="brand"
+               label="OK"
+               title="OK"
+               onclick="{!c.submitDetails}"/>
+         </footer>
+      </div>
+   </section>
+   <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:if>
+<aura:if isTrue="{!v.gameResultModal}">
+   <!-- Modal/Popup Box starts here-->
+   <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container">
+         <!-- Modal/Popup Box Header Starts here-->
+         <header class="slds-modal__header">
+            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Play Tic-Tac-Toe </h2>
+         </header>
+         <!--Modal/Popup Box Body Starts here-->
+         <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <p>
+               <b>
+            <div class="slds-align_absolute-center">
+            {!v.gameResultMessage} 
+            </div>
+            </b>
+            </p>
+         </div>
+         <!--Modal/Popup Box Footer Starts here-->
+         <footer class="slds-modal__footer">
+            <lightning:button variant="brand"
+               label="Play Again"
+               title="Restart"
+               onclick="{!c.restart}"/>
+         </footer>
+      </div>
+   </section>
+   <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:if>	
+    
+</aura:component>

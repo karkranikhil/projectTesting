@@ -1,0 +1,49 @@
+<template>
+        <lightning-card title="Assigned Patient">
+            <div class="slds-m-around_medium">
+            <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <template for:each={tableHeaders} for:item="head">
+                                <th key={head}>{head}</th>
+                            </template>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={tableBodyData} for:item="bodyItem" for:index="index">
+                            <tr key={uniqueKey}>
+                                <td>{bodyItem.lastName}</td>
+                                <td>{bodyItem.fName}</td>
+                                <td>{bodyItem.dob}</td>
+                                <td>{bodyItem.ssn}</td>
+                                <td>
+                                    <lightning-radio-group label="" data-id={bodyItem.id} data-columntype="patientEnrolled"
+                                        name={bodyItem.patientEnrolledName} onchange={handleChange}
+                                        options={bodyItem.patientEnrolledOptionValues} value={bodyItem.patientEnrolled}
+                                        type="radio"></lightning-radio-group>
+                                </td>
+                                <td>
+                                    <lightning-radio-group label="" data-id={bodyItem.id} data-columntype="patientCounseling"
+                                        name={bodyItem.patientCounselingName} onchange={handleChange}
+                                        options={bodyItem.patientCounselingOptionValues} value={bodyItem.patientCounseling}
+                                        type="radio"></lightning-radio-group>
+                                </td>
+                                <td>{bodyItem.anzFrequency}</td>
+                                <td>{bodyItem.testDate}</td>
+                                <td>{bodyItem.anzCount}</td>
+                                <td>
+                                    <lightning-radio-group label="" data-id={bodyItem.id} data-columntype="anzCountVerified"
+                                        name={bodyItem.anzCountVerifiedName} onchange={handleChange}
+                                        options={bodyItem.anzCountOptionValues} value={bodyItem.anzCountVerified} type="radio">
+                                    </lightning-radio-group>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </lightning-card>
+    
+</template>

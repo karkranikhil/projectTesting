@@ -1,0 +1,62 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	
+    <div>
+    <div class="wrapper">
+        
+		<div>
+        <label>Sales KPI Navigation</label>
+        <div class="d-flex">
+        <div>
+            <input type="checkbox" name="full" id="full" value="full"/>
+            <label for="full" class="btn">Full Business View</label>
+        </div>
+            <div>
+                
+                <input type="checkbox" name="east" id="east" value="east"/>
+                    <label for="east" class="btn">East Zone</label>
+            </div>
+               <div> 
+                    <input type="checkbox" name="West" id="West" value="West"/>
+                   <label for="West" class="btn">West Zone
+                   </label></div>
+                <div>
+                    <input type="checkbox" name="North" id="North" value="full"/>
+                    <label for="North" class="btn">North Zone
+                    </label></div>
+                <div>
+                    <input type="checkbox" name="South" id="South" value="full"/>
+                    <label for="South" class="btn">South Zone
+                    </label></div>
+        		</div>
+            </div>    
+         <div>
+             
+             <label for="sel1">Select ASM for Detailed View</label>
+              <select class="form-control" id="sel1">
+                <option>All ASMs</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+        </div>
+        <div>
+        <label>Sales KPI Period</label>
+        <div class="d-flex">
+        <div>
+            <input type="radio" name="Period" id="Monthly" value="Monthly"/>
+            <label for="Monthly" class="btn">Monthly</label>
+        </div>
+            <div>
+                
+                <input type="radio" name="Period" id="Quaterly" value="Quaterly"/>
+                    <label for="Quaterly" class="btn">Quaterly</label>
+            </div>
+               <div> 
+                    <input type="radio" name="Period" id="Annually" value="Annually"/>
+                   <label for="Annually" class="btn">Annually
+                   </label></div>
+        		</div>
+            </div>
+    </div>
+        </div>
+</aura:component>

@@ -1,0 +1,29 @@
+<template>
+    <div class="container">
+    <h1 class="heading">Todo List Using LWC</h1>
+<table class="table-responsive bordered highlight centered hoverable z-depth-2">
+      <thead>
+        <tr>
+        <template for:each={header} for:item="head">
+                <th key={head}>{head}</th>
+        </template>
+        </tr>
+      </thead>
+      <tbody>
+            <template for:each={todoList} for:item="list">
+                <tr key={list.Name__c}>
+                    <td>{list.Name__c}</td>
+                    <td>{list.Age__c}</td>
+                    <td>{list.Address__c}</td>
+                    <td class="btn-group">
+                    <a href="#" class="btn waves-effect waves-light yellow darken-2">edit</a>
+                    <a href="#" class="btn waves-effect waves-light red darken-2">Delete</a>
+                    </td>
+                </tr>
+            </template>
+        
+        
+        </tbody>
+        </table>
+    </div>
+</template>

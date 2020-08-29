@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-m-around_medium">
+        <lightning-card title="fetch record details by getFieldValue adapter" icon-name="standard:user">
+            <div class="slds-m-around_medium">
+                <p>Account Name: {name}</p>
+                <p>Industry: {industry}</p>
+                <p>Phone: {phone}</p>
+                <p>Owner: {owner}</p>
+                <p>Revenue: {revenue}</p>
+                <lightning-formatted-number format-style="currency" value={revenue} currency-code="USD">
+                </lightning-formatted-number>
+            </div>
+        </lightning-card>
+    </div>
+    <div class="slds-m-around_medium">
+        <lightning-card title="fetch record details by  Id" icon-name="standard:user">
+            <!-- <div class="slds-m-around_medium">
+                    <p>Account Name: {result.Name}</p>
+                    <p>Industry: {result.Industry}</p>
+                    <p>Phone: {result.Phone}</p>
+            </div> -->
+        </lightning-card>
+    </div>
+
+</template>

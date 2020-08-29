@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="getPicklistValuesByRecordType Adapter Demo Picklist">
+        <div class="slds-m-around_medium">
+            <template if:true={currencyIsoCodeValues}>
+                <lightning-combobox name="currenyison" label="Currency ISO CODE" value={picklistvalue} placeholder="-Select-"
+                    options={currencyIsoCodeValues.values} onchange={handleChange}>
+                </lightning-combobox>
+            </template><br />
+            you selected industry: <strong>{picklistvalue}</strong>
+        </div>
+    </lightning-card>
+</template>

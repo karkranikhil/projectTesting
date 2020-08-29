@@ -1,0 +1,47 @@
+<template>
+        <lightning-card  variant="Narrow"  title="Conditional Rendering" icon-name="standard:account">
+        
+            <section id="show_section">
+                <h2>if:true Directive</h2>
+                <button class="btn success" onclick={showHandler}>Click me to Show text</button>
+                <template if:true={showText}>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</p>
+                </template>
+            </section>
+
+            <section id="hide_section">
+                <h2>if:false Directive</h2>
+                <button class="btn success" onclick={hideHandler}>Click me to Hide text</button>
+                <template if:false={hideText}>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</p>
+                </template>
+            </section>
+            
+            <section id="toggle_section">
+                <h2>Toggle example</h2>
+                <h3>Toggle means flip-flop, If first click hide the text another click show the text.</h3>
+                <button class="btn success" onclick={toggleHandler}>Click me to toggle text</button>
+                <template if:true={toggleText}>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</p>
+                </template>
+            </section>
+            <section id="conditional_section" class="mb-1">
+                <h2>Conditional based Hide/show. Type 'Hello' in textbox.</h2>
+                    <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Type 'Hello' to see text"
+                    onkeyup={changeHandler}
+                    value={inputText}
+                />
+                <div if:true={checkText}>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel </p>
+                </div>
+            </section>
+        </lightning-card>
+    
+
+    
+
+</template>

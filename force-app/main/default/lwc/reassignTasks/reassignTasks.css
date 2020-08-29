@@ -1,0 +1,47 @@
+.card{
+  box-sizing: border-box;
+  border: 1px solid #DDDBDA;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  padding: 14px 12px;
+}
+.reassign-tasks {
+  height: 24px;
+  width: 114px;
+  color: #080707;
+  font-family: "Salesforce Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+.card-body{
+    margin-left:10px;
+    margin-right:10px;
+}
+.sub-header{
+    justify-content: space-between;
+    display: flex;
+    margin-top: 18px;
+}
+.sub-header h2{
+  height: 24px;
+  width: 300px;
+  color: #080707;
+  font-family: "Salesforce Sans";
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 24px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.filter-by {
+  height: 18px;
+  width: 56px;
+  color: #080707;
+  font-family: "Salesforce Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 18px;
+}

@@ -1,0 +1,64 @@
+<template>
+    <!-- <lightning-card title="Search Account details" icon-name="custom:custom57">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search"></lightning-input>
+            <template if:true={accounts}>
+                <table id="myTable" class="myTable">
+                    <tr class="header">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Account number</th>
+                    </tr>
+            <template for:each={accounts} for:item='acc'>
+
+            <tr key={acc.Id}>
+                <td>{acc.Id}</td>
+                <td>{acc.Name}</td>
+                <td>{acc.AccountNumber}</td>
+            </tr>
+
+
+            </template>
+            </table>
+            </template>
+
+        </div>
+    </lightning-card> -->
+    <div class="container">
+    <button onclick={handleLoad} class="btn info">Load Accounts details</button>
+  
+
+            <table>
+                <template if:true={accountDetailsLoad}>
+                <tr class="header">
+                    <th style="width:30%">Name</th>
+                    <th>Id</th>
+                    <th>AccountNumber</th>
+                    <th>Phone Number</th>
+                </tr>   
+            </template>
+            <template for:each={accounts} for:item='acc'>
+                     <tr key={acc.Id}>
+                        <td>{acc.Name}</td>
+                        <td>{acc.Id}</td>
+                        <td>{acc.AccountNumber}</td>
+                        <td>{acc.Phone}</td>
+                    </tr>
+            </template>
+        </table>
+</div> 
+<!-- <template if:true={accounts.data}>
+        <div class="card">
+                <h3 class="header">Account details List</h3>
+                <template for:each={accounts.data} for:item="acc">
+                        <div key={acc.Id} class="title">
+                            <div>{acc.Name}</div>
+                            <div>{acc.AccountNumber}</div>
+                            <div>{acc.Phone}</div>
+                        </div>
+                    </template>
+                <h3 class="footer">Wire to a Function Demo</h3>
+            </div>
+    
+</template> -->
+</template>

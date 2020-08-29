@@ -1,0 +1,16 @@
+<apex:page controller="linkedin_integration">
+    <apex:form >
+    	<apex:pageBlock title="Authorization">
+        	<apex:pageBlockButtons location="top">
+            <apex:commandButton value="Request Code" action="{!requestCode}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="RedirectURL"/>
+                    <apex:outputLabel value="{!redirectUrl}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

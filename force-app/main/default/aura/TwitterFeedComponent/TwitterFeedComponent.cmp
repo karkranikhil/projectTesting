@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="twitterHandle" type="string"/>
+    <aura:attribute name="height" type="Integer" default="400" />
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="error" type="String"/>
+    <aura:attribute name="profile_url" type="String" />
+    <!--
+    <lightning:avatar src="{!v.profile_url}" variant="circle" initials="" fallbackIconName="action:user" 
+                      alternativeText="{!v.simpleRecord.Name}" class="slds-m-right_small" size="large"/>
+    -->
+    <force:recordData aura:id="RecordDetails"
+                      recordId="{!v.recordId}"
+                      layoutType="COMPACT"
+                      fields="Id,Twitter_Handle__c,Name"
+                      mode="VIEW"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.error}"
+                      recordUpdated="{!c.handleRecordUpdated}"/>
+    
+    <iframe src="{!'https://karkra-dev-ed--c.visualforce.com/apex/TwitterFeedPage?twitterHandle='+v.twitterHandle}"
+            width="100%" height="{!v.height+'px'}" frameBorder="1"/>
+</aura:component>

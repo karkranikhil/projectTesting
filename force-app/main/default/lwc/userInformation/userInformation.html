@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Logged in User Detail to show apex call" icon-name="custom:custom19">
+            <template if:true={user}>
+        <div class="slds-m-around_medium">
+            <p><strong>Id:</strong>{userId}</p>
+            <p><strong>Name:</strong>{user.Name}</p>
+            <p><strong>Email: </strong>{user.Email}</p>
+        </div>
+            </template>
+    </lightning-card>
+</template>

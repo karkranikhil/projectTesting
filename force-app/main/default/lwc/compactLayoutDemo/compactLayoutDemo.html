@@ -1,0 +1,41 @@
+<template>
+                <lightning-combobox
+                        name="progress"
+                        label="Status"
+                        value=""
+                        placeholder="Select Progress"
+                        options={options}
+                        onchange={handleChange}
+                        required
+                ></lightning-combobox>
+
+
+        <div class="c-container">
+            <lightning-layout>
+                <template if:true={isFreeUser}>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column">
+                        <p class="field-title" title="Field 1">Field 1</p>
+                        <p>data1</p>
+                    </div>
+                </lightning-layout-item>
+            </template>
+            <template if:true={isSysAdmin}>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column">
+                        <p class="field-title" title="Field 2">Field 2</p>
+                        <p>data2</p>
+                    </div>
+                </lightning-layout-item>
+            </template>
+                <template if:true={isSalesUser}>
+                    <lightning-layout-item padding="around-small">
+                        <div class="header-column">
+                            <p class="field-title" title="Field 3">Field 3</p>
+                            <p>data3</p>
+                        </div>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </div>
+    </template>

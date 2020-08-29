@@ -1,0 +1,33 @@
+.card{
+  box-sizing: border-box;
+  border: 1px solid #DDDBDA;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  padding: 14px 12px;
+}
+.d-flex{
+  display:flex;
+}
+.justify-space-between{
+    justify-content: space-between;
+}
+.align-item-center{
+    align-items: center;
+}
+
+.icon{
+  height: auto;
+  width: auto;
+}
+.notify-msg {
+  height: 27px;
+  width: 966px;
+  color: #080707;
+  font-family: "Salesforce Sans";
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 27px;
+  margin: 0px 12px;
+}
