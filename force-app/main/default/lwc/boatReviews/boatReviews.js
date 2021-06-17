@@ -9,10 +9,11 @@ export default class BoatReviews extends NavigationMixin(LightningElement) {
     isLoading;
 
     // Getter and Setter to allow for logic to run on recordId change
-    @api
+    
     get recordId() { 
         return this.boatId
     }
+    @api
     set recordId(value) {
         //sets boatId attribute
         //sets boatId assignment

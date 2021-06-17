@@ -21,7 +21,7 @@ export default class BoatMap extends LightningElement {
   get recordId() {
     return this.boatId;
   }
-  set recordId(value) {
+  @api set recordId(value) {
     this.setAttribute('boatId', value);
     this.boatId = value;
   }
@@ -50,21 +50,23 @@ export default class BoatMap extends LightningElement {
     }
   }
 
+  subscribeMC() {
+    if(this.subscription) { return; }
+    // Subscribe to the message channel to retrieve the recordID and assign it to boatId.
+    this.subscription = subscribe(
+        this.messageContext, 
+        BOATMC, 
+        (message) => {
+            this.boatId = message.recordId;
+        }, 
+        { scope: APPLICATION_SCOPE }
+    );
+}
+
   // Runs when component is connected, subscribes to BoatMC
   connectedCallback() {
-    // recordId is populated on Record Pages, and this component
-    // should not update when this component is on a record page.
-    if (this.subscription || this.recordId) {
-      return;
-    }
-    this.subscription = subscribe(
-      this.messageContext,
-      BOATMC,
-      (message) => this.handleMessage(message),
-      { scope: APPLICATION_SCOPE }
-    );
-    // Subscribe to the message channel to retrieve the recordID and assign it to boatId.
-  }
+    this.subscribeMC();
+ }
   unsubscribeToMessageChannel() {
     unsubscribe(this.subscription);
     this.subscription = null;

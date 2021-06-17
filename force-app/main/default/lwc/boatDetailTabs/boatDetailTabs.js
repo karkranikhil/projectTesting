@@ -46,20 +46,18 @@ export default class BoatDetailTabs extends NavigationMixin(LightningElement) {
 
     // Subscribe to the message channel
     subscribeMC() {
-        if (this.subscription || this.recordId) {
+        if (this.subscription) {
             return;
         }
         this.subscription = subscribe(
             this.messageContext,
             BOATMC,
-            (message) => this.handleMessage(message),
+            (message) => {
+                this.boatId = message.recordId;
+            },
             { scope: APPLICATION_SCOPE }
         );
      }
-
-    handleMessage(message) {
-        this.boatId = message.recordId;
-    }
 
     // Calls subscribeMC()
     connectedCallback() {
@@ -81,6 +79,5 @@ export default class BoatDetailTabs extends NavigationMixin(LightningElement) {
     handleReviewCreated() {
         this.template.querySelector('lightning-tabset').activeTabValue = 'two';
         this.template.querySelector('c-boat-reviews').refresh()
-        
      }
 }

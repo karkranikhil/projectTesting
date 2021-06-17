@@ -5,7 +5,7 @@ import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
 const READ_ONLY_CLASS = 'readonly c-rating'
 const EDITABLE_CLASS = 'c-rating'
 const ERROR_VARIANT = 'error'
-const TOAST_ERROR_TITLE = 'Error loading five-star'
+const ERROR_TITLE = 'Error loading five-star'
 export default class FiveStarRating extends LightningElement {
   //initialize public readOnly and value properties
   @api readOnly;
@@ -40,7 +40,7 @@ export default class FiveStarRating extends LightningElement {
       }).catch(error => {
         this.dispatchEvent(
           new ShowToastEvent({
-            title: TOAST_ERROR_TITLE,
+            title: ERROR_TITLE,
             variant: ERROR_VARIANT
           })
         );
